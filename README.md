@@ -4,10 +4,14 @@ A Python simulation of a double pendulum system that demonstrates chaotic behavi
 
 ## Description
 
-This project simulates a double pendulum system using numerical integration of the equations of motion. The simulation creates an animated visualization showing:
-- The movement of both pendulum arms
-- A trace of the path taken by the second pendulum bob
-- Real-time animation of the system's evolution
+This project simulates a double pendulum system using numerical integration of the equations of motion. The simulation features an interactive GUI that allows you to:
+- Adjust initial angles, arm lengths, and masses using sliders
+- Visualize the initial configuration with a polar angle dial
+- Start the simulation with a button click
+- Watch an animated visualization showing:
+  - The movement of both pendulum arms
+  - A trace of the path taken by the second pendulum bob
+  - Real-time animation of the system's evolution
 
 ## Requirements
 
@@ -22,50 +26,37 @@ Run the simulation using:
 ```bash
 python main.py
 ```
+An interactive window will appear. Use the sliders to set initial conditions and parameters, then click **Start Simulation** to view the animation.
 
 ## Customization
 
-You can modify these parameters in `main.py` to create unique patterns:
+You can modify these parameters using the GUI sliders in `main.py`:
 
-1. Initial conditions (angles and velocities):
-```python
-init_state = [theta1, omega1, theta2, omega2]
-# Default: [np.pi/2, 0, np.pi/2 + 0.01, 0]
-```
-- `theta1`: Initial angle of first pendulum (radians)
-- `omega1`: Initial angular velocity of first pendulum
-- `theta2`: Initial angle of second pendulum (radians)
-- `omega2`: Initial angular velocity of second pendulum
+1. **Initial conditions (angles in degrees):**
+   - `θ₁`: Initial angle of first pendulum
+   - `θ₂`: Initial angle of second pendulum
 
-2. Physical parameters:
-```python
-L1, L2 = 1.0, 1.0  # Lengths of pendulum arms
-m1, m2 = 1.0, 1.0  # Masses of pendulum bobs
-g = 9.81           # Gravitational acceleration
-```
+2. **Physical parameters:**
+   - `L₁`, `L₂`: Lengths of pendulum arms (meters)
+   - `m₁`, `m₂`: Masses of pendulum bobs (kg)
+   - `g`: Gravitational acceleration (fixed at 9.81 m/s²)
 
-3. Simulation parameters:
-```python
-t = np.linspace(0, 20, 1000)  # Time array (duration, number of points)
-```
+3. **Simulation parameters:**
+   - The simulation runs for 20 seconds with 1000 time steps (modifiable in code if needed).
 
 ## Interesting Patterns
 
-Try these modifications to see different behaviors:
+Try these slider settings to see different behaviors:
 
-1. Slightly different initial angles:
-```python
-init_state = [np.pi/2, 0, np.pi/2 + 0.001, 0]  # Very similar initial conditions
-```
+1. **Slightly different initial angles:**
+   - Set `θ₁` and `θ₂` to values that differ by only 1 degree.
 
-2. Different arm lengths:
-```python
-L1, L2 = 1.0, 2.0  # Unequal pendulum lengths
-```
+2. **Different arm lengths:**
+   - Set `L₁` and `L₂` to unequal values (e.g., 1.0 and 2.0).
 
-3. Different masses:
-```python
-m1, m2 = 1.0, 0.5  # Lighter second mass
-```
+3. **Different masses:**
+   - Set `m₁` and `m₂` to different values (e.g., 1.0 and 0.5).
 
 The chaotic nature of the system means that even tiny changes in these values can produce vastly different patterns over time.
+
+---
